@@ -10,7 +10,7 @@ public class Cliente {
 	private String email;
 	
 	// metodo construtor carregado
-	public VendaProduto(String idCliente, String nomeCliente, String cpfCliente, String dataNasc, String telefone,
+	public Cliente(String idCliente, String nomeCliente, String cpfCliente, String dataNasc, String telefone,
 			String endereco, String email) {
 		super();
 		this.idCliente = idCliente;
@@ -23,7 +23,7 @@ public class Cliente {
 	}
 
 	//metodo construtor vazio 
-	public VendaProduto() {
+	public Cliente() {
 		super();
 	}
 
