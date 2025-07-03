@@ -1,10 +1,13 @@
 package application;
 	
 import java.sql.Connection;
+import java.util.ArrayList;
 
 import connectionfactory.ConnectionDatabase;
+import dao.ClienteDAO;
 import javafx.application.Application;
 import javafx.stage.Stage;
+import model.Cliente;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 
@@ -24,8 +27,32 @@ public class Main extends Application {
 	}
 	
 	public static void main(String[] args) {
-		Connection con = ConnectionDatabase.getConnection();
-		ConnectionDatabase.closeConnection(con);
+		Cliente cliente = new Cliente();
+		ClienteDAO clienteDAO = new ClienteDAO();
+		ArrayList<Cliente> clientes = new ArrayList<>();
+		clientes = clienteDAO.read();
+		
+		
+		for(int i= 0;i < clientes.size(); i++) {
+			cliente = clientes.get(i);
+			System.out.print(cliente.getIdCliente());
+			System.out.print("|");
+			System.out.print(cliente.getCpfCliente());
+			System.out.print("|");
+			System.out.print(cliente.getDataNasc());
+			System.out.print("|");
+			System.out.print(cliente.getEndereco());
+			System.out.print("|");
+			System.out.print(cliente.getTelefone());
+			System.out.print("|");
+			System.out.print(cliente.getEmail());
+			System.out.print("|");
+			System.out.print(cliente.getNomeCliente());
+			
+		}
+		
+		
 		launch(args);
 	}
 }
+ 
